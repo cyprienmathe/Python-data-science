@@ -1,6 +1,8 @@
 # Python-data-science
 Notre repository pour notre projet de python pour la data science
 
+CSV (test) : https://equipements.sports.gouv.fr/api/explore/v2.1/catalog/datasets/data-es/exports/csv?lang=fr&timezone=Europe%2FParis&use_labels=true&delimiter=%3B&select=equip_nom%2C%20equip_service_date%2C%20equip_douche%2C%20equip_sanit%2C%20equip_travaux_date&where=reg_nom%20like%20%27%C3%8Ele-de-France%27
+
 API : https://equipements.sports.gouv.fr/explore/dataset/data-es/api/?q=%C3%8ELE+DE+FRANCE
 
 Réutilisations antérieures : https://equipements.sports.gouv.fr/explore/dataset/data-es/information/
