@@ -41,6 +41,7 @@ def regression(x, y):
     y_reg = y.values.ravel()
     return(sm.OLS(y_reg, x_reg).fit(cov_type='HC0'))
 
+from sklearn.linear_model import LinearRegression
 import sklearn.metrics 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -52,8 +53,9 @@ import seaborn as sns
 
 def prediction(x, y, afficher = True):
     #séparation des données en 2 échantillon 
-    X_train, X_test, y_train, y_test = train_test_split(x,y, test_size=0.2)
-    
+    #X_train, X_test, y_train, y_test = train_test_split(x,y, test_size=1)
+    X_train, X_test, y_train, y_test = x,x,y,y
+
     #régression et prédiction
     ols = LinearRegression().fit(X_train, y_train)
     y_pred = ols.predict(X_test)
@@ -75,3 +77,5 @@ def prediction(x, y, afficher = True):
         fig = plt.figure()
         g = sns.scatterplot(data = tempdf, x = "observed", y = "error")
         g.axhline(0, color = "red")
+
+    return tempdf
