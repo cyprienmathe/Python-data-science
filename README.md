@@ -33,6 +33,7 @@ Table des matières :
 - III/ Modélisation
     * A. Vue globale des inégalités à l'aide d'un indice de Gini
     * B.Estimation des efforts à fournir pour égaliser les territoires
-
+ 
+Ce projet se trouve sur le script main.ipynb, qu'il faut faire tourner pour y trouver notre travail.
 
 
