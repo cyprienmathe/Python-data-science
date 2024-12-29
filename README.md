@@ -23,10 +23,10 @@ Table des matières :
         + Tris croisés
 - III/ Modélisation
     * A. Vue globale des inégalités à l'aide d'un indice de Gini
-    * B.Estimation des efforts à fournir pour égaliser les territoires
+    * B. Estimation des efforts à fournir pour égaliser les territoires
+    * C. Outil de repérage de l'infrastructure la plus proche
  
 Ce projet se trouve sur le script **main.ipynb**, qu'il faut faire tourner pour y trouver notre travail.
-
 
 
 
