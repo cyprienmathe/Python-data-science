@@ -9,13 +9,30 @@ Réutilisations antérieures : https://equipements.sports.gouv.fr/explore/datase
 
 Dictionnaire de variables : https://www.data.gouv.fr/fr/datasets/recensement-des-equipements-sportifs-espaces-et-sites-de-pratiques/#/community-resources/1b49fb73-97a4-4ab5-b1bc-eb169661b4c9
 
-Intro (1er jet) : 
+Introduction : 
+Depuis les Jeux Olympiques de Paris 2024, un certain nombre de jeunes se sont pris de passion pour le tennis de table et la natation. Cependant, cet engouement s’est heurté au manque d’infrastructure, à leur vétusté et au manque d’encadrant. Cela a de nouveau mis en lumière le problème de l'accessibilité au sport et des « déserts sportifs ». A l’instar des « déserts médicaux », les « déserts sportifs » sont des zones géographiques souvent rurales, où les infrastructures sportives et les encadrants manquent et où infrastructures existantes sont pour la plupart vétustes et mal équipées. Cela constitue un obstacle à la pratique sportive des habitants de ces zones.
 
-Similairement aux déserts médicaux, les déserts sportifs sont des zones géographiques, souvent rurales, où les infrastructures sportives sont peu nombreuses, vétustes ou mal équipées. Leur existence est liée à l’absence de “moyens, de volonté politique parfois aussi”, d’après un article de Franceinfo publié en 2023 [1], et celle-ci pose un problème en termes de santé publique et de bien-être pour la population française rurale. Pour le résoudre, plusieurs pistes sont évoquées, notamment la décision d’une hausse des dépenses publiques par le Ministère des Sports, mais aussi une intervention des acteurs privés [2], qui pourraient collaborer avec les autorités publiques pour mettre en place des infrastructures de qualité dans les zones qui en ont le plus besoin. Mais quelles sont ces zones prioritaires ? 
+Pourtant, il semble exister un consensus sur les bienfaits d’une pratique sportive régulière, en cela qu’elle permet de prévenir un grand nombre de maladies notamment cardiovasculaires ; mais aussi en tant que facteur d’intégration sociale. Aussi, nous avons souhaité questionner cette notion de « désert sportif » sur la base du recensement des équipements sportifs en France. Pour cela, il nous a semblé pertinent d’analyser plusieurs variables telles que la vétusté des infrastructures étudiées, l’offre de sport selon les territoires et l’accessibilité aux infrastructures via des transports en commun.
 
-En admettant l’existence d’une causalité entre sport et bien-être, l’objectif de ce projet sera donc dans un premier temps de repérer les zones les plus enclavées, aux infrastructures les moins nombreuses et les plus vétustes, afin d’essayer d’estimer d’une part le nombre d’infrastructures à ajouter, et d’autre part le montant à investir en rénovations. Nous ferons dans un second temps la distinction entre les différents types de sport, et nous étudierons la corrélation entre le type de sport et le niveau de richesse, afin d’éventuellement offrir une plus grande diversité d’activités à la population.
+Notre projet a donc pour objectif de répondre à la problématique suivante : A quel point la situation géographique d’un individu est-elle déterminante dans sa capacité à poursuivre une activité sportive régulière ?
 
-Intro (2ème jet, Jules) : 
-Après les JO/JP, il y a eu un engouement des jeunes Français pour les clubs de tennis de table ou les piscines, mais il s'est heurté aux infrastructures, trop peu nombreuses ou trop vétustes, ou au manque d'encadrants.
-De l'autre côté, le sport a une place centrale dans notre société. Il fait partie intégrante du processus d'intégration sociale et de lutte contre l'isolement social, et il porte une forte dimension politique en cela que les valeurs qu'il porte sont souvent associées à celles du travail (goût de l'effort, confiance en soi, ascension sociale). Enfin, le sport est un levier des politiques publiques de la santé, car l'activité physique permettrait de réduire la prévalence des maladies cardiovasculaires, des dépressions et de l'obésité, pour ne citer que ces pathologies. 
-On voudrait se questionner dans ce projet sur la notion de "désert sportif", sur le même modèle que celle de "désert médical", à partir du recensement des équipements sportifs en France. Plusieurs variables peuvent être intéressantes à analyser : la vétusté, l'offre de sport par commune, l'accessibilité en transports en commun, l'accessibilité aux PMR. Et de comparer en dernier lieux ces résultats, aux des données socio-économiques à l'échelle du département par exemple (ruralité, taux de pauvreté, prévalence de certaines maladies...) par le biais de régression linéaires ou tris croisés.
+Table des matières :
+I/ Récupération et traitement des données 
+    A. Récupération des données : Prise en main de l'API
+        Ajout d'une petit base de données économiques
+    B. Nettoyage des données
+        Préparation des données de cartiflette et synthèse avec les données éco.
+    C. Création de nouvelles variables 
+II/ Analyse descriptive et représentation graphique
+    A. Description de la base de données utilisée
+        Nombre d'installations par type d'équipement
+        Indicateur de vétusté violin plot
+    B. Grandes tendances observées
+        Cartographie
+        Tris croisés
+III/ Modélisation
+    A. Vue globale des inégalités à l'aide d'un indice de Gini
+    B.Estimation des efforts à fournir pour égaliser les territoires
+
+
+
