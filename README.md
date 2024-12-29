@@ -17,22 +17,22 @@ Pourtant, il semble exister un consensus sur les bienfaits d’une pratique spor
 Notre projet a donc pour objectif de répondre à la problématique suivante : A quel point la situation géographique d’un individu est-elle déterminante dans sa capacité à poursuivre une activité sportive régulière ?
 
 Table des matières :
-I/ Récupération et traitement des données 
-    A. Récupération des données : Prise en main de l'API
-        Ajout d'une petit base de données économiques
-    B. Nettoyage des données
-        Préparation des données de cartiflette et synthèse avec les données éco.
-    C. Création de nouvelles variables 
-II/ Analyse descriptive et représentation graphique
-    A. Description de la base de données utilisée
-        Nombre d'installations par type d'équipement
-        Indicateur de vétusté violin plot
-    B. Grandes tendances observées
-        Cartographie
-        Tris croisés
-III/ Modélisation
-    A. Vue globale des inégalités à l'aide d'un indice de Gini
-    B.Estimation des efforts à fournir pour égaliser les territoires
+- I/ Récupération et traitement des données 
+    * A. Récupération des données : Prise en main de l'API
+        + Ajout d'une petit base de données économiques
+    * B. Nettoyage des données
+        + Préparation des données de cartiflette et synthèse avec les données éco.
+    * C. Création de nouvelles variables 
+- II/ Analyse descriptive et représentation graphique
+    * A. Description de la base de données utilisée
+        + Nombre d'installations par type d'équipement
+        + Indicateur de vétusté violin plot
+    * B. Grandes tendances observées
+        + Cartographie
+        + Tris croisés
+- III/ Modélisation
+    * A. Vue globale des inégalités à l'aide d'un indice de Gini
+    * B.Estimation des efforts à fournir pour égaliser les territoires
 
 
 
