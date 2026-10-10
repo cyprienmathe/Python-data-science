@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import requests
 import statsmodels.api as sm
+from urllib.parse import urlencode
 
 
 # A function that transforms a call of the api into a usable panda file 
@@ -16,25 +17,43 @@ def call_api(api_url):
 #Cette fonction mange directement le lien que sort l'interface de l'api donc pas besoin de le modifier, elle rend un panda directement
 #Il sert à obtenir des tableaux plus grands sans la limite de 100 (bien mettre limit=-1 dans le lien)
 
+def creer_url_api(colonnes, limit=-1):
+    """
+    Crée une URL de requête pour sélectionner les colonnes demandées.
+    """
+    if not colonnes:
+        raise ValueError("La liste des colonnes ne peut pas être vide.")
+
+    parametres = {
+        "select": ",".join(colonnes),
+        "limit": limit
+    }
+
+    base_url = (
+        "https://equipements.sports.gouv.fr/"
+        "api/explore/v2.1/catalog/datasets/data-es/records"
+    )
+
+    return f"{base_url}?{urlencode(parametres)}"
+
 def call_csv(url):
+    csv_url = url.replace("records", "exports/csv")
 
-    url = url.replace("records", "exports/csv")
-    # Send a GET request to the URL
-    response = requests.get(url)
+    response = requests.get(csv_url)
 
-# Ensure the request was successful (status code 200)
-    if response.status_code == 200:
-    # Save the content to a file
-        with open('equipements_ile_de_france.csv', 'wb') as f:
-            f.write(response.content)
+    if response.status_code != 200:
+        raise RuntimeError(
+            f"Erreur lors de la récupération du CSV "
+            f"(HTTP {response.status_code}) :\n{response.text}"
+        )
 
-    # Load the CSV into a pandas DataFrame
-        df = pd.read_csv('equipements_ile_de_france.csv', delimiter=';')
+    with open("equipements_ile_de_france.csv", "wb") as f:
+        f.write(response.content)
 
-    # Display the first few rows of the DataFrame
-    else:
-        print(f"Failed to retrieve CSV. Status code: {response.status_code}")
-    return(df)
+    return pd.read_csv(
+        "equipements_ile_de_france.csv",
+        delimiter=";"
+    )
 
 def regression(x, y):
     x_reg = sm.add_constant(x)
