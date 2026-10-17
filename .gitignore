@@ -173,4 +173,5 @@ cython_debug/
 
 *.html
 *.pdf
+*.png
 equipements_ile_de_france.csv

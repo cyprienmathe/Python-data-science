@@ -62,7 +62,11 @@ def call_csv(url):
 
     return pd.read_csv(
         "equipements_ile_de_france.csv",
-        delimiter=";"
+        delimiter=";",
+    dtype={
+        "dep_code_filled": str,
+        "new_code": str
+    }
     )
 
 k = 0
