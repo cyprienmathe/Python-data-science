@@ -14,19 +14,6 @@ import sklearn.metrics
 import seaborn as sns
 import random
 
-
-# A function that transforms a call of the api into a usable panda file 
-def call_api(api_url):
-    req = requests.get(api_url)
-    wb = req.json()
-    print(wb.keys())
-
-    df = pd.DataFrame(wb['results'])
-    return(df)
-
-#Cette fonction mange directement le lien que sort l'interface de l'api donc pas besoin de le modifier, elle rend un panda directement
-#Il sert à obtenir des tableaux plus grands sans la limite de 100 (bien mettre limit=-1 dans le lien)
-
 def creer_url_api(colonnes, limit=-1):
     """
     Crée une URL de requête pour sélectionner les colonnes demandées.
@@ -69,15 +56,55 @@ def call_csv(url):
     }
     )
 
-k = 0
-def clean(dep_code):
-    global k
-    if dep_code == '2A' or dep_code == '2B': #exception pour la Corse NaN
-        return dep_code
-    if pd.isna(dep_code):  # Gérer les valeurs manquantes
-        k+=1
+def afficher_pourcentage(n):
+    compteur = {"i": 0}
+
+    def format_pct(pct):
+        i = compteur["i"]
+        compteur["i"] += 1
+
+        if i >= n or pct < 2:
+            return ""
+        return f"{pct:.1f}%"
+
+    return format_pct
+
+def annee_aleatoire(periode):
+    if pd.isna(periode):
         return None
-    return f"{int(float(dep_code)):02d}"
+
+    periode = str(periode).strip()
+
+    if periode.startswith("A partir de"):
+        debut = int(periode.replace("A partir de", "").strip())
+        return random.randint(debut, 2026)
+
+    if periode.startswith("Avant"):
+        fin = int(periode.replace("Avant", "").strip())
+        return random.randint(1900, fin)
+
+    debut, fin = map(int, periode.split("-"))
+    return random.randint(debut, fin)
+
+def obtenir_decennie(annee):
+    if pd.isna(annee):
+        return None
+
+    annee = int(annee)
+
+    if annee >= 2005:
+        return "A partir de 2005"
+
+    if annee < 1945:
+        return "Avant 1945"
+
+    if 1945 <= annee < 1965:
+        return "1945-1964"
+
+    debut = ((annee - 5) // 10) * 10 + 5
+    fin = debut + 9
+
+    return f"{debut}-{fin}"
 
 def regression(x, y):
     x_reg = sm.add_constant(x)
